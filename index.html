@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adriana Pink — Product Manager · Yoga Teacher · Writer</title>
+  <meta name="description" content="Adriana Pink is a Senior Product Manager, 200-Hr certified yoga teacher, and writer based in NYC.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── HOME-SPECIFIC ── */
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding: 0 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: 4rem;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: 'AP';
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18rem, 40vw, 38rem);
+      font-weight: 700;
+      color: rgba(196,133,126,0.06);
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-40%, -52%);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-top {
+      margin-bottom: auto;
+      padding-top: 6rem;
+    }
+
+    .hero-location {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .hero-name {
+      font-size: clamp(4.5rem, 13vw, 12rem);
+      font-weight: 400;
+      line-height: 0.9;
+      margin: 1.5rem 0 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-name .last {
+      font-style: italic;
+      color: var(--rose);
+      display: block;
+    }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--rule);
+      padding-top: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .identity-col {
+      padding: 0 2rem 0 0;
+      border-right: 1px solid var(--rule);
+      transition: opacity 0.2s;
+    }
+
+    .identity-col:last-child {
+      border-right: none;
+      padding-right: 0;
+      padding-left: 2rem;
+    }
+
+    .identity-col:nth-child(2) {
+      padding-left: 2rem;
+    }
+
+    .identity-col:hover { opacity: 0.75; }
+
+    .identity-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .identity-label::before {
+      content: '';
+      display: inline-block;
+      width: 16px; height: 1px;
+      background: var(--rose);
+    }
+
+    .identity-col:nth-child(2) .identity-label::before { background: var(--sage); }
+    .identity-col:nth-child(3) .identity-label::before { background: var(--gold); }
+
+    .identity-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+
+    .identity-desc {
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .identity-link {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.2s;
+    }
+
+    .identity-link:hover { gap: 0.7rem; }
+    .identity-link::after { content: '→'; }
+
+    /* ABOUT */
+    .about {
+      padding: 7rem 3rem;
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 6rem;
+      align-items: start;
+      background: var(--blush);
+    }
+
+    .about-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-top: 0.5rem;
+    }
+
+    .about-left {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(145deg, var(--rose-light) 0%, var(--slate) 100%);
+      border-radius: 2px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .about-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .about-right {}
+
+    .about-right .display { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 1.5rem; }
+
+    .about-right p { font-size: 0.92rem; line-height: 1.85; color: var(--muted); margin-bottom: 1.1rem; }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .tag {
+      border: 1px solid rgba(28,35,64,0.18);
+      padding: 0.35rem 0.85rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: var(--navy);
+      border-radius: 1px;
+    }
+
+    /* WORLDS */
+    .worlds {
+      padding: 7rem 3rem;
+      background: var(--navy);
+    }
+
+    .worlds-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .worlds-header .display { font-size: clamp(2rem, 4vw, 3.2rem); color: white; }
+    .worlds-header .display em { color: var(--rose); }
+
+    .worlds-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .world-card {
+      background: var(--navy);
+      padding: 3rem 2.5rem;
+      transition: background 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      text-decoration: none;
+    }
+
+    .world-card:hover { background: rgba(255,255,255,0.04); }
+
+    .world-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .world-category {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 0.7rem;
+    }
+
+    .world-card:nth-child(2) .world-category { color: var(--sage); }
+    .world-card:nth-child(3) .world-category { color: var(--gold); }
+
+    .world-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .world-desc {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.45);
+      flex: 1;
+      margin-bottom: 2rem;
+    }
+
+    .world-arrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .world-card:hover .world-arrow {
+      color: white;
+      gap: 0.8rem;
+    }
+
+    .world-arrow::after { content: '→'; }
+
+    /* WRITING TEASER */
+    .writing-teaser {
+      padding: 7rem 3rem;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .writing-teaser .display { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 1.2rem; }
+
+    .writing-teaser p { font-size: 0.92rem; line-height: 1.85; color: var(--muted); margin-bottom: 2rem; }
+
+    .topics-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .topics-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.2s;
+    }
+
+    .topics-list li:hover { color: var(--navy); }
+    .topics-list li::after { content: '↗'; font-style: normal; font-size: 0.8rem; }
+
+    /* NEWSLETTER */
+    .newsletter {
+      background: var(--rose);
+      padding: 5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .newsletter .display { font-size: clamp(2rem, 4vw, 3.2rem); color: white; margin-bottom: 1rem; }
+    .newsletter .display em { font-style: italic; color: rgba(255,255,255,0.75); }
+
+    .newsletter p { font-size: 0.92rem; color: rgba(255,255,255,0.75); margin-bottom: 2.5rem; max-width: 480px; }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0;
+      max-width: 460px;
+      width: 100%;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-right: none;
+      padding: 0.9rem 1.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      color: white;
+      outline: none;
+    }
+
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.5); }
+
+    .newsletter-form button {
+      background: white;
+      color: var(--rose);
+      border: none;
+      padding: 0.9rem 1.8rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .newsletter-form button:hover { background: var(--cream); }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .hero { padding: 0 1.5rem 3rem; }
+      .hero-bottom { grid-template-columns: 1fr; gap: 2rem; }
+      .identity-col { border-right: none; border-bottom: 1px solid var(--rule); padding: 0 0 2rem 0 !important; }
+      .identity-col:last-child { border-bottom: none; }
+      .about { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-left { flex-direction: column; }
+      .about-label { writing-mode: horizontal-tb; transform: none; }
+      .worlds { padding: 4rem 1.5rem; }
+      .worlds-grid { grid-template-columns: 1fr; }
+      .writing-teaser { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 2.5rem; }
+      .newsletter { padding: 4rem 1.5rem; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form input { border-right: 1px solid rgba(255,255,255,0.3); border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Adriana <em>Pink</em></a>
+  <button class="nav-toggle" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="yoga.html">Yoga</a></li>
+    <li><a href="pm.html">Product</a></li>
+    <li><a href="writing.html">Writing</a></li>
+    <li><a href="https://www.linkedin.com/in/adrianapink/" target="_blank" class="nav-ext">LinkedIn ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero pt-nav">
+  <div class="hero-top">
+    <p class="hero-location">New York City, NY</p>
+    <h1 class="hero-name display">
+      Adriana
+      <span class="last">Pink.</span>
+    </h1>
+  </div>
+  <div class="hero-bottom">
+    <div class="identity-col">
+      <p class="identity-label">01 — Product</p>
+      <h2 class="identity-title">Product Manager</h2>
+      <p class="identity-desc">Senior PM building at the intersection of technology and humans — from Disney to IBM to Morgan & Morgan.</p>
+      <a href="pm.html" class="identity-link">Explore my work</a>
+    </div>
+    <div class="identity-col">
+      <p class="identity-label">02 — Movement</p>
+      <h2 class="identity-title">Yoga Teacher</h2>
+      <p class="identity-desc">200-Hr Yoga Alliance certified. Free community classes in NYC for all bodies, all levels, all backgrounds.</p>
+      <a href="yoga.html" class="identity-link">Join a class</a>
+    </div>
+    <div class="identity-col">
+      <p class="identity-label">03 — Voice</p>
+      <h2 class="identity-title">Writer</h2>
+      <p class="identity-desc">On the chaos and clarity of building a full life — career, wellness, identity, and everything in between.</p>
+      <a href="writing.html" class="identity-link">Read my writing</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- MARQUEE -->
+<div class="marquee-strip" style="background: var(--navy); color: rgba(255,255,255,0.45);">
+  <div class="marquee-inner">
+    <span>Senior Product Manager</span><span class="sep"> · </span>
+    <span>200-Hr Yoga Alliance</span><span class="sep"> · </span>
+    <span>NYU Chemical Engineering</span><span class="sep"> · </span>
+    <span>Free Community Yoga</span><span class="sep"> · </span>
+    <span>IBM · Disney · Morgan & Morgan</span><span class="sep"> · </span>
+    <span>Doing it with passion</span><span class="sep"> · </span>
+    <span>Staying resilient</span><span class="sep"> · </span>
+    <span>Senior Product Manager</span><span class="sep"> · </span>
+    <span>200-Hr Yoga Alliance</span><span class="sep"> · </span>
+    <span>NYU Chemical Engineering</span><span class="sep"> · </span>
+    <span>Free Community Yoga</span><span class="sep"> · </span>
+    <span>IBM · Disney · Morgan & Morgan</span><span class="sep"> · </span>
+    <span>Doing it with passion</span><span class="sep"> · </span>
+    <span>Staying resilient</span><span class="sep"> · </span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-left">
+    <span class="about-label">About</span>
+    <div class="about-img">
+      <!-- Replace with: <img src="images/adriana-portrait.jpg" alt="Adriana Pink"> -->
+    </div>
+  </div>
+  <div class="about-right fade-up">
+    <span class="eyebrow">The story</span>
+    <h2 class="display">Engineer. Builder.<br><em>Community maker.</em></h2>
+    <p>I'm Adriana — a Senior PM, yoga teacher, and writer based in New York City. I hold a Chemical and Biomolecular Engineering degree from NYU, which means I approach everything with the same rigor: whether I'm shipping a product feature, leading a vinyasa class, or writing about what it means to build a full, intentional life.</p>
+    <p>My career has taken me through IBM, The Walt Disney Company, Gastrograph AI, The Weather Company, and now Morgan & Morgan — where I lead Salesforce integrations for Medical Operations. Through all of it, I've stayed committed to the work that keeps me grounded: moving my body, building community, and writing honestly about the ride.</p>
+    <p>Doing it with passion. Staying resilient. Always.</p>
+    <div class="about-tags">
+      <span class="tag">Senior Product Manager</span>
+      <span class="tag">200-Hr Yoga Alliance</span>
+      <span class="tag">NYU Engineering</span>
+      <span class="tag">AI/ML Products</span>
+      <span class="tag">Community Builder</span>
+      <span class="tag">CPR/AED Certified</span>
+    </div>
+  </div>
+</section>
+
+<!-- WORLDS -->
+<section class="worlds">
+  <div class="worlds-header">
+    <h2 class="display">The worlds<br><em>I live in</em></h2>
+    <p style="font-size:0.85rem; color:rgba(255,255,255,0.4); max-width:280px; line-height:1.7;">Multi-hyphenate isn't a compromise — it's the whole point.</p>
+  </div>
+  <div class="worlds-grid">
+    <a href="pm.html" class="world-card">
+      <div class="world-num">01</div>
+      <p class="world-category">Product Management</p>
+      <h3 class="world-title">Building products people actually need</h3>
+      <p class="world-desc">A decade of shipping at the intersection of technology and human experience — from AI/ML content features to legal-tech Salesforce integrations.</p>
+      <span class="world-arrow">View my work</span>
+    </a>
+    <a href="yoga.html" class="world-card">
+      <div class="world-num">02</div>
+      <p class="world-category">Yoga & Movement</p>
+      <h3 class="world-title">Free community yoga for all bodies</h3>
+      <p class="world-desc">200-Hr certified and CPR/AED certified. I teach free outdoor classes in NYC because yoga should be accessible — not a luxury.</p>
+      <span class="world-arrow">Join a class</span>
+    </a>
+    <a href="writing.html" class="world-card">
+      <div class="world-num">03</div>
+      <p class="world-category">Writing & Voice</p>
+      <h3 class="world-title">On building a full life without apology</h3>
+      <p class="world-desc">Career pivots, identity, wellness, and what it looks like to chase multiple passions at once. Honest writing for ambitious women who contain multitudes.</p>
+      <span class="world-arrow">Read more</span>
+    </a>
+  </div>
+</section>
+
+<!-- WRITING TEASER -->
+<section class="writing-teaser">
+  <div class="fade-up">
+    <span class="eyebrow gold">Writing</span>
+    <h2 class="display">Things I write<br><em class="gold">about</em></h2>
+    <p>A Substack is coming — an honest space for ambitious women building intentional lives. On career, wellness, identity, and the beautiful chaos in between.</p>
+    <a href="writing.html" class="btn btn-dark">See what's coming →</a>
+  </div>
+  <ul class="topics-list">
+    <li>What it means to be multi-hyphenate</li>
+    <li>Building a career with intention</li>
+    <li>Yoga as a tool, not an aesthetic</li>
+    <li>Navigating tech as a Latina woman</li>
+    <li>Money, creativity & side businesses</li>
+    <li>Living fully in New York City</li>
+  </ul>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <h2 class="display">Stay in <em>the loop</em></h2>
+  <p>Be the first to know when my Substack launches, new yoga sessions drop, and new essays go live.</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="your@email.com">
+    <button type="button">Notify Me</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">Adriana <em>Pink</em></div>
+      <p class="footer-tagline">"Doing it with passion, staying resilient."</p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-nav-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="yoga.html">Yoga</a></li>
+          <li><a href="pm.html">Product</a></li>
+          <li><a href="writing.html">Writing</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/adrianapink/" target="_blank">LinkedIn ↗</a></li>
+          <li><a href="writing.html">Substack (coming soon)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Adriana C. Pink · adrianapink.com</p>
+    <p class="footer-copy">NYC — Built with intention.</p>
+  </div>
+</footer>
+
+<script>
+  // Fade-up on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

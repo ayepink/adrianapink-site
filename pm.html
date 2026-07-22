@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Management — Adriana Pink</title>
+  <meta name="description" content="Senior Product Manager with a decade of experience at IBM, Disney, The Weather Company, and Morgan & Morgan.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── PM PAGE ── */
+
+    .pm-hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pm-hero::before {
+      content: 'PM';
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(16rem, 38vw, 36rem);
+      font-weight: 700;
+      color: rgba(139,149,184,0.07);
+      position: absolute;
+      bottom: -4rem; right: -2rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .pm-hero-top {
+      position: absolute;
+      top: 7rem; left: 3rem;
+    }
+
+    .pm-headline {
+      font-size: clamp(3.5rem, 9vw, 9rem);
+      font-weight: 400;
+      color: white;
+      line-height: 0.95;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 2.5rem;
+    }
+
+    .pm-headline em { font-style: italic; color: var(--slate); }
+
+    .pm-hero-meta {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .meta-item label { color: rgba(255,255,255,0.3); }
+    .meta-item span { color: white; }
+
+    /* CAREER */
+    .career {
+      padding: 7rem 3rem;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .career-left { position: sticky; top: 7rem; }
+
+    .career-left .display { font-size: clamp(2rem, 3vw, 2.8rem); }
+
+    .career-left p { font-size: 0.88rem; line-height: 1.85; color: var(--muted); margin-top: 1rem; }
+
+    .career-timeline { display: flex; flex-direction: column; gap: 0; }
+
+    .timeline-item {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2rem;
+      transition: background 0.2s;
+    }
+
+    .timeline-item:first-child { padding-top: 0; }
+    .timeline-item:last-child { border-bottom: none; }
+
+    .timeline-date {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
+      padding-top: 0.25rem;
+    }
+
+    .timeline-role {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-company {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.84rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+    }
+
+    .timeline-tags .tag { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
+
+    /* SKILLS */
+    .skills {
+      background: var(--blush);
+      padding: 7rem 3rem;
+    }
+
+    .skills-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+
+    .skills-header .display { font-size: clamp(2rem, 3.5vw, 3rem); }
+
+    .skills-header p { font-size: 0.88rem; line-height: 1.85; color: var(--muted); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5px;
+    }
+
+    .skill-block {
+      background: white;
+      padding: 2rem;
+      transition: transform 0.25s ease;
+    }
+
+    .skill-block:hover { transform: translateY(-3px); }
+
+    .skill-category {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--slate);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .skill-list li {
+      font-size: 0.84rem;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-list li::before {
+      content: '';
+      width: 4px; height: 4px;
+      background: var(--slate);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* HIGHLIGHTS */
+    .highlights {
+      background: var(--navy);
+      padding: 7rem 3rem;
+    }
+
+    .highlights .display { color: white; font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 4rem; }
+    .highlights .display em { color: var(--slate); }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .highlight-card {
+      padding: 2.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: border-color 0.25s, background 0.25s;
+    }
+
+    .highlight-card:hover {
+      border-color: rgba(139,149,184,0.3);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .highlight-stat {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 400;
+      color: var(--slate);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: white;
+      margin-bottom: 0.6rem;
+    }
+
+    .highlight-desc {
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* CTA */
+    .pm-cta {
+      padding: 7rem 3rem;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .pm-cta .display { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 1.2rem; }
+    .pm-cta p { font-size: 0.92rem; line-height: 1.85; color: var(--muted); margin-bottom: 2rem; }
+
+    .pm-cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .pm-cta-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+    }
+
+    .contact-row {
+      background: var(--blush);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .contact-row:hover { background: var(--rose-light); }
+
+    .contact-row-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .contact-row-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .pm-hero { padding: 0 1.5rem 3rem; }
+      .pm-hero-top { left: 1.5rem; }
+      .career, .pm-cta { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 2.5rem; }
+      .career-left { position: static; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .skills { padding: 4rem 1.5rem; }
+      .skills-header { grid-template-columns: 1fr; gap: 1.5rem; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .highlights { padding: 4rem 1.5rem; }
+      .highlights-grid { grid-template-columns: 1fr; }
+      .pm-cta-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Adriana <em>Pink</em></a>
+  <button class="nav-toggle" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="yoga.html">Yoga</a></li>
+    <li><a href="pm.html" class="active">Product</a></li>
+    <li><a href="writing.html">Writing</a></li>
+    <li><a href="https://www.linkedin.com/in/adrianapink/" target="_blank" class="nav-ext">LinkedIn ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="pm-hero pt-nav">
+  <div class="pm-hero-top">
+    <a href="index.html" class="back-link" style="color:rgba(255,255,255,0.35);">← Back home</a>
+  </div>
+  <div>
+    <h1 class="pm-headline display">
+      Senior<br>Product<br><em>Manager.</em>
+    </h1>
+    <div class="pm-hero-meta">
+      <div class="meta-item">
+        <label>Current</label>
+        <span>Morgan & Morgan</span>
+      </div>
+      <div class="meta-item">
+        <label>Focus</label>
+        <span>Salesforce / API Integrations</span>
+      </div>
+      <div class="meta-item">
+        <label>Background</label>
+        <span>Chemical Engineering, NYU</span>
+      </div>
+      <div class="meta-item">
+        <label>Specialties</label>
+        <span>AI/ML · Platform · B2B SaaS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section class="career">
+  <div class="career-left fade-up">
+    <span class="eyebrow slate">Experience</span>
+    <h2 class="display">A decade of <em class="slate">building</em></h2>
+    <p>From Chemical Engineering at NYU to shipping AI/ML content features to legal tech integrations — every role has been about understanding people and building better systems for them.</p>
+    <div style="margin-top:2rem;">
+      <a href="https://www.linkedin.com/in/adrianapink/" target="_blank" class="btn btn-outline">View LinkedIn ↗</a>
+    </div>
+  </div>
+  <div class="career-timeline">
+    <div class="timeline-item fade-up">
+      <div class="timeline-date">June 2025 — Present</div>
+      <div>
+        <div class="timeline-role">Senior Product Manager</div>
+        <div class="timeline-company">Morgan & Morgan</div>
+        <p class="timeline-desc">Lead Salesforce/Litify system integrations for Medical Operations, including vendor API architecture, middleware integrations, and operational scaling. Driving cross-functional alignment across engineering, legal ops, and vendor teams.</p>
+        <div class="timeline-tags">
+          <span class="tag">Salesforce</span>
+          <span class="tag">API Architecture</span>
+          <span class="tag">Legal Tech</span>
+          <span class="tag">Vendor Management</span>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item fade-up">
+      <div class="timeline-date">2022 — 2025</div>
+      <div>
+        <div class="timeline-role">Product Manager</div>
+        <div class="timeline-company">The Weather Company</div>
+        <p class="timeline-desc">Led AI/ML-powered content features that reduced content turnaround by 85%. Owned the full product lifecycle for automated editorial tools serving millions of daily users.</p>
+        <div class="timeline-tags">
+          <span class="tag">AI/ML</span>
+          <span class="tag">Content Products</span>
+          <span class="tag">Automation</span>
+          <span class="tag">Scale</span>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item fade-up">
+      <div class="timeline-date">2020 — 2022</div>
+      <div>
+        <div class="timeline-role">Product Manager</div>
+        <div class="timeline-company">The Walt Disney Company / Imagineering</div>
+        <p class="timeline-desc">Worked at the intersection of technology and experience design — bringing Disney's creative vision into digital products and emerging technology platforms.</p>
+        <div class="timeline-tags">
+          <span class="tag">Experience Design</span>
+          <span class="tag">Consumer Products</span>
+          <span class="tag">Emerging Tech</span>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item fade-up">
+      <div class="timeline-date">2018 — 2020</div>
+      <div>
+        <div class="timeline-role">Associate Product Manager</div>
+        <div class="timeline-company">IBM</div>
+        <p class="timeline-desc">Launched B2B enterprise features as part of IBM's APM program. Developed a foundation in agile methodologies, technical product development, and stakeholder alignment across global teams.</p>
+        <div class="timeline-tags">
+          <span class="tag">Enterprise SaaS</span>
+          <span class="tag">Agile</span>
+          <span class="tag">B2B</span>
+          <span class="tag">Global Teams</span>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item fade-up">
+      <div class="timeline-date">2017 — 2018</div>
+      <div>
+        <div class="timeline-role">Product Manager</div>
+        <div class="timeline-company">Gastrograph AI</div>
+        <p class="timeline-desc">Early-stage AI startup applying machine learning to flavor prediction and CPG product development. Wore many hats — from user research to ML pipeline specification.</p>
+        <div class="timeline-tags">
+          <span class="tag">AI/ML Startup</span>
+          <span class="tag">Consumer Insights</span>
+          <span class="tag">Early Stage</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills">
+  <div class="skills-header">
+    <div>
+      <span class="eyebrow slate">Expertise</span>
+      <h2 class="display">What I bring<br><em class="slate">to the table</em></h2>
+    </div>
+    <p>A Chemical Engineering background gives me technical rigor. A decade in product gives me the human context. Together, they make for a PM who bridges both worlds fluently.</p>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-block">
+      <div class="skill-category">Product</div>
+      <ul class="skill-list">
+        <li>Roadmap Strategy</li>
+        <li>Discovery & Research</li>
+        <li>PRD & Spec Writing</li>
+        <li>Go-to-Market</li>
+        <li>OKR Frameworks</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-category">Technical</div>
+      <ul class="skill-list">
+        <li>Salesforce / Litify</li>
+        <li>API Architecture</li>
+        <li>AI / ML Products</li>
+        <li>Middleware Integrations</li>
+        <li>Data Pipelines</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-category">Process</div>
+      <ul class="skill-list">
+        <li>Agile / Scrum</li>
+        <li>Cross-functional Leadership</li>
+        <li>Vendor Management</li>
+        <li>Stakeholder Alignment</li>
+        <li>Operational Scaling</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-category">Domains</div>
+      <ul class="skill-list">
+        <li>Legal Tech</li>
+        <li>Media & Content</li>
+        <li>Consumer Products</li>
+        <li>B2B SaaS</li>
+        <li>AI Instruction / EdTech</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="highlights">
+  <span class="eyebrow slate">Impact</span>
+  <h2 class="display">Numbers that<br><em>matter</em></h2>
+  <div class="highlights-grid">
+    <div class="highlight-card fade-up">
+      <div class="highlight-stat">85%</div>
+      <div class="highlight-title">Content turnaround reduction</div>
+      <p class="highlight-desc">Led AI/ML content automation at The Weather Company, cutting production time by 85% for millions of daily users.</p>
+    </div>
+    <div class="highlight-card fade-up">
+      <div class="highlight-stat">4K+</div>
+      <div class="highlight-title">Vendor cases reanalyzed</div>
+      <p class="highlight-desc">Built SOLA Bot via Amazon Bedrock to catch vendor double-counting — surfacing systemic billing issues across 4,000+ cases.</p>
+    </div>
+    <div class="highlight-card fade-up">
+      <div class="highlight-stat">10+</div>
+      <div class="highlight-title">Years in product</div>
+      <p class="highlight-desc">A decade of shipping across startups, enterprise, media, entertainment, and legal tech — always at the intersection of technology and humans.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pm-cta">
+  <div class="fade-up">
+    <span class="eyebrow slate">Let's work together</span>
+    <h2 class="display">Open to <em>what's next</em></h2>
+    <p>I'm actively exploring Senior PM opportunities in marketplace, platform, and B2B SaaS. If you're building something meaningful and need someone who bridges technical depth with human-centered thinking — let's talk.</p>
+    <div class="pm-cta-actions">
+      <a href="https://www.linkedin.com/in/adrianapink/" target="_blank" class="btn btn-dark">Connect on LinkedIn ↗</a>
+      <a href="index.html#newsletter" class="btn btn-outline">Get in touch</a>
+    </div>
+  </div>
+  <div class="pm-cta-right">
+    <div class="contact-row">
+      <span class="contact-row-label">Location</span>
+      <span class="contact-row-value">New York City, NY</span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-row-label">Open to</span>
+      <span class="contact-row-value">Senior PM · Staff PM</span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-row-label">Domains</span>
+      <span class="contact-row-value">Marketplace · Platform · B2B SaaS</span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-row-label">LinkedIn</span>
+      <span class="contact-row-value"><a href="https://www.linkedin.com/in/adrianapink/" target="_blank" style="color:var(--rose);">adrianapink ↗</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">Adriana <em>Pink</em></div>
+      <p class="footer-tagline">"Doing it with passion, staying resilient."</p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-nav-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="yoga.html">Yoga</a></li>
+          <li><a href="pm.html">Product</a></li>
+          <li><a href="writing.html">Writing</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/adrianapink/" target="_blank">LinkedIn ↗</a></li>
+          <li><a href="writing.html">Substack (coming soon)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Adriana C. Pink · adrianapink.com</p>
+    <p class="footer-copy">NYC — Built with intention.</p>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
