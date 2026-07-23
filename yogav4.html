@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yoga with Adriana Pink — Free Community Classes NYC</title>
+  <meta name="description" content="Free community yoga classes in NYC. 200-Hr Yoga Alliance certified. All bodies, all levels welcome.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── YOGA PAGE ── */
+
+    .yoga-hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #2a3d2a 0%, #1a2a1a 60%, #1C2340 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .yoga-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(138,158,138,0.25) 0%, transparent 60%);
+    }
+
+    .yoga-hero-top {
+      position: absolute;
+      top: 7rem; left: 3rem;
+    }
+
+    .back-link {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: rgba(255,255,255,0.8); }
+    .back-link::before { content: '←'; }
+
+    .yoga-hero-content { position: relative; z-index: 1; }
+
+    .yoga-headline {
+      font-size: clamp(5rem, 14vw, 13rem);
+      font-weight: 400;
+      color: white;
+      line-height: 0.9;
+      margin-bottom: 2.5rem;
+    }
+
+    .yoga-headline em {
+      font-style: italic;
+      color: var(--sage);
+      display: block;
+    }
+
+    .yoga-hero-meta {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 2rem;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .meta-item label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .meta-item span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: white;
+    }
+
+    /* MISSION */
+    .yoga-mission {
+      padding: 7rem 3rem;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .yoga-mission .display { font-size: clamp(2rem, 3.5vw, 3rem); }
+
+    .yoga-mission-right p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .yoga-mission-right blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--sage);
+      border-left: 2px solid var(--sage);
+      padding-left: 1.5rem;
+      margin: 2.5rem 0;
+      line-height: 1.5;
+    }
+
+    /* OFFERINGS */
+    .offerings {
+      background: var(--blush);
+      padding: 7rem 3rem;
+    }
+
+    .offerings-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .offerings-header .display { font-size: clamp(2rem, 3.5vw, 3rem); }
+
+    .offerings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+    }
+
+    .offering-card {
+      background: white;
+      padding: 2.5rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .offering-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(138,158,138,0.12);
+    }
+
+    .offering-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .offering-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.7rem;
+    }
+
+    .offering-desc {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .offering-detail {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--sage);
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    /* SCHEDULE */
+    .schedule {
+      background: var(--navy);
+      padding: 7rem 3rem;
+    }
+
+    .schedule .display { color: white; font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 3.5rem; }
+    .schedule .display em { color: var(--sage); }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .schedule-table th {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      font-weight: 400;
+      padding: 0 1.5rem 1.2rem 0;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .schedule-table td {
+      padding: 1.3rem 1.5rem 1.3rem 0;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .schedule-table tr:hover td { color: white; }
+
+    .sched-class {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: white;
+    }
+
+    .free-pill {
+      display: inline-block;
+      background: rgba(138,158,138,0.2);
+      color: var(--sage);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* TESTIMONIALS */
+    .yoga-testimonials {
+      padding: 7rem 3rem;
+      background: var(--cream);
+    }
+
+    .yoga-testimonials .display { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 4rem; }
+
+    .testimonials-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .t-card {
+      padding: 2.5rem;
+      background: var(--blush);
+      position: relative;
+    }
+
+    .t-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--rose-light);
+      position: absolute;
+      top: 1rem; left: 2rem;
+    }
+
+    .t-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--navy);
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    .t-author {
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .t-author strong { color: var(--navy); display: block; }
+
+    /* CONTACT/SIGNUP */
+    .yoga-signup {
+      background: var(--sage);
+      padding: 7rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .yoga-signup .display { font-size: clamp(2rem, 3.5vw, 3rem); color: white; margin-bottom: 1rem; }
+    .yoga-signup .display em { font-style: italic; color: rgba(255,255,255,0.6); }
+
+    .yoga-signup > div > p { font-size: 0.9rem; line-height: 1.85; color: rgba(255,255,255,0.75); margin-bottom: 2rem; }
+
+    .signup-form { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .yoga-signup .field-group label { color: rgba(255,255,255,0.6); }
+
+    .yoga-signup .field-group input,
+    .yoga-signup .field-group textarea,
+    .yoga-signup .field-group select {
+      color: white;
+      border-bottom-color: rgba(255,255,255,0.3);
+    }
+
+    .yoga-signup .field-group input:focus,
+    .yoga-signup .field-group textarea:focus,
+    .yoga-signup .field-group select:focus {
+      border-bottom-color: white;
+    }
+
+    .yoga-signup .field-group select option { color: var(--navy); background: white; }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .yoga-hero { padding: 0 1.5rem 3rem; }
+      .yoga-hero-top { left: 1.5rem; }
+      .yoga-mission, .yoga-signup { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 2.5rem; }
+      .offerings { padding: 4rem 1.5rem; }
+      .offerings-grid { grid-template-columns: 1fr; }
+      .schedule { padding: 4rem 1.5rem; }
+      .schedule-table th, .schedule-table td { padding: 1rem 0.5rem 1rem 0; }
+      .yoga-testimonials { padding: 4rem 1.5rem; }
+      .testimonials-row { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Adriana <em>Pink</em></a>
+  <button class="nav-toggle" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="yoga.html" class="active">Yoga</a></li>
+    <li><a href="pm.html">Product</a></li>
+    <li><a href="writing.html">Writing</a></li>
+    <li><a href="https://www.linkedin.com/in/adrianapink/" target="_blank" class="nav-ext">LinkedIn ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="yoga-hero pt-nav">
+  <div class="yoga-hero-top">
+    <a href="index.html" class="back-link">Back home</a>
+  </div>
+  <div class="yoga-hero-content">
+    <h1 class="yoga-headline display">
+      Breathe.
+      <em>Move.</em>
+      Connect.
+    </h1>
+    <div class="yoga-hero-meta">
+      <div class="meta-item">
+        <label>Certification</label>
+        <span>200-Hr Yoga Alliance</span>
+      </div>
+      <div class="meta-item">
+        <label>Safety</label>
+        <span>CPR/AED Certified</span>
+      </div>
+      <div class="meta-item">
+        <label>Location</label>
+        <span>New York City</span>
+      </div>
+      <div class="meta-item">
+        <label>Cost</label>
+        <span>Always Free</span>
+      </div>
+      <div class="meta-item">
+        <label>Who it's for</label>
+        <span>All Bodies, All Levels</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="yoga-mission">
+  <div class="fade-up">
+    <span class="eyebrow sage">The practice</span>
+    <h2 class="display">Yoga for <em class="sage">all of us</em></h2>
+  </div>
+  <div class="yoga-mission-right fade-up">
+    <p>Hi, I'm Adriana — a 200-Hour Certified Yoga Teacher (Yoga Alliance) with a passion for creating inclusive, welcoming spaces for all bodies and all levels. My classes blend mindful movement with breath awareness, making yoga approachable and accessible whether you're brand new or have been practicing for years.</p>
+    <blockquote>Yoga should be a space where everyone feels welcome — not just those who can afford a boutique studio membership.</blockquote>
+    <p>Through these free community classes, I hope to open the door for more people to experience the grounding benefits of mindfulness — building strength, balance, and calm that carry off the mat and into everyday life.</p>
+    <p>Sign up below to receive updates on upcoming sessions and become part of a growing, supportive community in NYC.</p>
+    <div style="margin-top:2rem;">
+      <a href="#signup" class="btn btn-dark">Join a free class</a>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERINGS -->
+<section class="offerings">
+  <div class="offerings-header">
+    <div>
+      <span class="eyebrow sage">What I teach</span>
+      <h2 class="display">Class <em>offerings</em></h2>
+    </div>
+    <a href="#signup" class="btn btn-outline">Reserve your spot</a>
+  </div>
+  <div class="offerings-grid">
+    <div class="offering-card">
+      <div class="offering-icon">🌱</div>
+      <h3 class="offering-name">Flow & Foundations</h3>
+      <p class="offering-desc">A mindful vinyasa flow for beginners and those returning to practice. We focus on alignment, breath, and building a strong foundation from the ground up.</p>
+      <span class="offering-detail">60 min · All levels · Free</span>
+    </div>
+    <div class="offering-card">
+      <div class="offering-icon">🌬️</div>
+      <h3 class="offering-name">Breathe & Balance</h3>
+      <p class="offering-desc">Pranayama-forward sessions combining breath work with grounding postures. Perfect for stress relief, nervous system regulation, and stillness.</p>
+      <span class="offering-detail">75 min · Beginner–Intermediate · Free</span>
+    </div>
+    <div class="offering-card">
+      <div class="offering-icon">🤝</div>
+      <h3 class="offering-name">Move & Connect</h3>
+      <p class="offering-desc">Community-centered flow emphasizing connection — to your body, your breath, and the people around you. Movement as meditation, together.</p>
+      <span class="offering-detail">60 min · All levels · Free</span>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule">
+  <span class="eyebrow sage">When & where</span>
+  <h2 class="display">Class <em>schedule</em></h2>
+  <div style="margin-top:1rem; padding: 3rem; border: 1px solid rgba(255,255,255,0.08); text-align:center;">
+    <p style="font-family:'Playfair Display',serif; font-size:1.8rem; font-style:italic; color:rgba(255,255,255,0.5); margin-bottom:1rem;">Classes coming soon.</p>
+    <p style="font-size:0.85rem; color:rgba(255,255,255,0.3); max-width:420px; margin:0 auto 2rem; line-height:1.8;">Sign up below to be the first to know when sessions are announced — location, day, and time will be shared with the community first.</p>
+    <a href="#signup" class="btn btn-rose" style="background:var(--sage);">Get notified →</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="yoga-testimonials">
+  <span class="eyebrow sage">Community</span>
+  <h2 class="display">What people <em>say</em></h2>
+  <div class="testimonials-row">
+    <div class="t-card fade-up">
+      <div class="t-quote">"</div>
+      <p class="t-text">Adriana's class completely changed how I think about movement. I came in nervous as a total beginner and left feeling grounded and strong. She creates such a warm, judgment-free space.</p>
+      <div class="t-author"><strong>Maria G.</strong>Flow & Foundations attendee</div>
+    </div>
+    <div class="t-card fade-up">
+      <div class="t-quote">"</div>
+      <p class="t-text">I've tried many yoga teachers in the city and Adriana stands out. Her cues are clear, her energy is infectious, and the fact that these sessions are free says everything about who she is.</p>
+      <div class="t-author"><strong>Jasmine T.</strong>Regular community member</div>
+    </div>
+    <div class="t-card fade-up">
+      <div class="t-quote">"</div>
+      <p class="t-text">The breathwork sessions have been transformative for my stress levels. I carry that calm into my entire week. Adriana makes yoga feel approachable and deeply meaningful at the same time.</p>
+      <div class="t-author"><strong>Priya K.</strong>Breathe & Balance student</div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section class="yoga-signup" id="signup">
+  <div>
+    <span class="eyebrow" style="color:rgba(255,255,255,0.6);">Get in touch</span>
+    <h2 class="display">Join the <em>community</em></h2>
+    <p>Sign up to receive updates on upcoming sessions, location confirmations, and community events. All classes are free and held outdoors in New York City.</p>
+    <div style="display:flex; flex-direction:column; gap:0.8rem; margin-top:1rem;">
+      <div style="font-size:0.75rem; color:rgba(255,255,255,0.5); letter-spacing:0.08em;">📍 New York City, NY</div>
+      <div style="font-size:0.75rem; color:rgba(255,255,255,0.5); letter-spacing:0.08em;">✉️ adrianacpink@gmail.com</div>
+      <div style="font-size:0.75rem; color:rgba(255,255,255,0.5); letter-spacing:0.08em;">🕉 All bodies, all levels welcome</div>
+    </div>
+  </div>
+  <div class="signup-form">
+    <div class="form-row">
+      <div class="field-group">
+        <label>First Name</label>
+        <input type="text" placeholder="Your first name">
+      </div>
+      <div class="field-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Your last name">
+      </div>
+    </div>
+    <div class="field-group">
+      <label>Email</label>
+      <input type="email" placeholder="your@email.com">
+    </div>
+    <div class="field-group">
+      <label>Class Interest</label>
+      <select>
+        <option value="">Choose a class...</option>
+        <option>Flow & Foundations</option>
+        <option>Breathe & Balance</option>
+        <option>Move & Connect</option>
+        <option>All classes / General updates</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label>Message (optional)</label>
+      <textarea placeholder="Any questions or notes for Adriana..."></textarea>
+    </div>
+    <button class="btn btn-dark" style="background:white; color:var(--sage);">Send & Join Community →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">Adriana <em>Pink</em></div>
+      <p class="footer-tagline">"Doing it with passion, staying resilient."</p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-nav-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="yoga.html">Yoga</a></li>
+          <li><a href="pm.html">Product</a></li>
+          <li><a href="writing.html">Writing</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/adrianapink/" target="_blank">LinkedIn ↗</a></li>
+          <li><a href="https://substack.com/@adrianapink" target="_blank">Substack ↗</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Adriana C. Pink · adrianapink.com</p>
+    <p class="footer-copy">NYC — Built with intention.</p>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
