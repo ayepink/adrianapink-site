@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work With Me — Adriana Pink</title>
+  <meta name="description" content="Brand strategy, product consulting, and content storytelling for startups and small businesses ready to build with intention.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+    /* ── WORK WITH ME PAGE ── */
+
+    .wm-hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wm-hero::before {
+      content: '';
+      position: absolute;
+      top: -10rem; right: -10rem;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,112,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .wm-headline {
+      font-size: clamp(3.5rem, 10vw, 10rem);
+      font-weight: 400;
+      color: white;
+      line-height: 0.92;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 2.5rem;
+    }
+
+    .wm-headline em {
+      font-style: italic;
+      color: var(--gold);
+      display: block;
+    }
+
+    .wm-hero-sub {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .wm-hero-sub p {
+      font-size: 0.92rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .wm-hero-sub .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    /* INTRO */
+    .wm-intro {
+      padding: 7rem 3rem;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .wm-intro .display { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 1.2rem; }
+    .wm-intro p { font-size: 0.92rem; line-height: 1.85; color: var(--muted); margin-bottom: 1rem; }
+
+    .wm-intro-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+    }
+
+    .credential-row {
+      background: var(--blush);
+      padding: 1.4rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      transition: background 0.2s;
+    }
+
+    .credential-row:hover { background: var(--rose-light); }
+
+    .cred-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .cred-text strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .cred-text span {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* SERVICES */
+    .services {
+      background: var(--blush);
+      padding: 7rem 3rem;
+    }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .services-header .display { font-size: clamp(2rem, 3.5vw, 3rem); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 3rem 2.5rem;
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(196,133,126,0.1);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--rose);
+    }
+
+    .service-card:nth-child(2)::before { background: var(--gold); }
+    .service-card:nth-child(3)::before { background: var(--slate); }
+
+    .service-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--rose-light);
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card:nth-child(2) .service-num { color: rgba(201,168,112,0.3); }
+    .service-card:nth-child(3) .service-num { color: rgba(139,149,184,0.3); }
+
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .service-desc {
+      font-size: 0.83rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+    }
+
+    .service-includes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .service-includes li {
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .service-includes li::before {
+      content: '→';
+      color: var(--rose);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .service-card:nth-child(2) .service-includes li::before { color: var(--gold); }
+    .service-card:nth-child(3) .service-includes li::before { color: var(--slate); }
+
+    /* PROCESS */
+    .process {
+      background: var(--navy);
+      padding: 7rem 3rem;
+    }
+
+    .process .display { color: white; font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 4rem; }
+    .process .display em { color: var(--gold); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .process-step {
+      background: var(--navy);
+      padding: 2.5rem 2rem;
+      transition: background 0.25s;
+    }
+
+    .process-step:hover { background: rgba(255,255,255,0.04); }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.1);
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: white;
+      margin-bottom: 0.6rem;
+    }
+
+    .step-desc {
+      font-size: 0.8rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* WHY ME */
+    .why-me {
+      padding: 7rem 3rem;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .why-me .display { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 1.5rem; }
+    .why-me p { font-size: 0.92rem; line-height: 1.85; color: var(--muted); margin-bottom: 1rem; }
+
+    .why-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      margin-top: 2rem;
+    }
+
+    .why-stat {
+      background: var(--blush);
+      padding: 1.8rem;
+    }
+
+    .why-stat strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--navy);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .why-stat span {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* SUBSTACK */
+    .substack-section {
+      background: var(--gold);
+      padding: 6rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .substack-section .display { font-size: clamp(2rem, 3.5vw, 3rem); color: white; margin-bottom: 1rem; }
+    .substack-section .display em { font-style: italic; color: rgba(255,255,255,0.65); }
+
+    .substack-section p { font-size: 0.92rem; line-height: 1.85; color: rgba(255,255,255,0.75); margin-bottom: 2rem; }
+
+    .substack-topics {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .sub-topic {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sub-topic::after { content: '↗'; font-style: normal; font-size: 0.8rem; opacity: 0.5; }
+
+    /* CONTACT */
+    .wm-contact {
+      background: var(--cream);
+      padding: 7rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .wm-contact .display { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 1rem; }
+    .wm-contact > div > p { font-size: 0.92rem; line-height: 1.85; color: var(--muted); margin-bottom: 2rem; }
+
+    .wm-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .wm-hero { padding: 7rem 1.5rem 3rem; }
+      .wm-hero-sub { grid-template-columns: 1fr; gap: 1.5rem; }
+      .wm-intro, .why-me, .wm-contact, .substack-section { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 2.5rem; }
+      .services { padding: 4rem 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process { padding: 4rem 1.5rem; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .why-stats { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Adriana <em>Pink</em></a>
+  <button class="nav-toggle" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="yoga.html">Yoga</a></li>
+    <li><a href="pm.html">Product</a></li>
+    <li><a href="writing.html" class="active">Work With Me</a></li>
+    <li><a href="https://www.linkedin.com/in/adrianapink/" target="_blank" class="nav-ext">LinkedIn ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="wm-hero">
+  <h1 class="wm-headline display">
+    Let's build
+    <em>something</em>
+    together.
+  </h1>
+  <div class="wm-hero-sub">
+    <p>I'm a Senior Product Manager and brand builder with a decade of experience helping companies ship products people actually want. Now I'm bringing that same rigor to startups and small businesses ready to grow with intention.</p>
+    <div class="actions">
+      <a href="#contact" class="btn btn-rose">Start a conversation →</a>
+      <a href="#services" class="btn btn-outline" style="border-color:rgba(255,255,255,0.25); color:white;">See what I offer</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="wm-intro">
+  <div class="fade-up">
+    <span class="eyebrow">The approach</span>
+    <h2 class="display">Strategy that's<br><em>built to last</em></h2>
+    <p>I don't do cookie-cutter. Every brand, product, and business has its own story — and my job is to help you find yours, sharpen it, and build systems around it that actually work.</p>
+    <p>With a background spanning Chemical Engineering, AI/ML products, and consumer brands across IBM, Disney, and Morgan & Morgan, I bring technical depth and creative thinking to every engagement.</p>
+  </div>
+  <div class="wm-intro-right">
+    <div class="credential-row">
+      <div class="cred-icon">🏗️</div>
+      <div class="cred-text">
+        <strong>10+ Years Building Products</strong>
+        <span>Startups to enterprise, across tech, media & legal</span>
+      </div>
+    </div>
+    <div class="credential-row">
+      <div class="cred-icon">🎯</div>
+      <div class="cred-text">
+        <strong>Brand Strategy & Positioning</strong>
+        <span>Helping founders tell clearer, bolder stories</span>
+      </div>
+    </div>
+    <div class="credential-row">
+      <div class="cred-icon">📱</div>
+      <div class="cred-text">
+        <strong>Content & Social Strategy</strong>
+        <span>Building audiences with bilingual, cultural fluency</span>
+      </div>
+    </div>
+    <div class="credential-row">
+      <div class="cred-icon">🤝</div>
+      <div class="cred-text">
+        <strong>Founder-First Mindset</strong>
+        <span>I've built my own brand — I understand the stakes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <span class="eyebrow">What I offer</span>
+      <h2 class="display">Services built for<br><em>real businesses</em></h2>
+    </div>
+    <a href="#contact" class="btn btn-dark">Let's talk →</a>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-num">01</div>
+      <h3 class="service-name">Brand Strategy</h3>
+      <p class="service-desc">For startups and small businesses who know what they do but struggle to communicate it clearly. We'll build the foundation your brand needs to grow.</p>
+      <ul class="service-includes">
+        <li>Brand positioning & messaging framework</li>
+        <li>Audience definition & competitive landscape</li>
+        <li>Visual identity direction & tone of voice</li>
+        <li>Go-to-market strategy</li>
+        <li>Brand story & founding narrative</li>
+      </ul>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">02</div>
+      <h3 class="service-name">Product Consulting</h3>
+      <p class="service-desc">For founders building digital products who need a strategic PM partner — without the full-time hire. Bring clarity to your roadmap and confidence to your decisions.</p>
+      <ul class="service-includes">
+        <li>Product roadmap development</li>
+        <li>Feature prioritization & trade-off analysis</li>
+        <li>User research & discovery facilitation</li>
+        <li>Vendor & tech stack evaluation</li>
+        <li>Launch strategy & success metrics</li>
+      </ul>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">03</div>
+      <h3 class="service-name">Content & Storytelling</h3>
+      <p class="service-desc">For brands that need a consistent, compelling voice across platforms. I help you create content systems that don't rely on you being online 24/7.</p>
+      <ul class="service-includes">
+        <li>Content strategy & editorial calendar</li>
+        <li>Social media positioning & pillars</li>
+        <li>Bilingual content (English & Spanish)</li>
+        <li>Founder personal brand development</li>
+        <li>Community building frameworks</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <span class="eyebrow gold">How it works</span>
+  <h2 class="display">A simple, <em>clear process</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Connect</div>
+      <p class="step-desc">Reach out via the form below. Tell me about your business, your goals, and where you feel stuck. No lengthy intake forms — just a real conversation.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Align</div>
+      <p class="step-desc">We'll talk through your needs and I'll share how I can help. If we're a good fit, we'll define the scope, timeline, and what success looks like.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Build</div>
+      <p class="step-desc">We get to work. I bring structure, strategy, and honest feedback — and you stay in the driver's seat. No fluff, no filler.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Grow</div>
+      <p class="step-desc">You leave with a clear plan, actionable assets, and the confidence to execute. I'm here for follow-up as you put it into practice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="why-me">
+  <div class="fade-up">
+    <span class="eyebrow">Why work with me</span>
+    <h2 class="display">I've built brands.<br><em>I know the stakes.</em></h2>
+    <p>I'm not just a consultant — I'm a founder too. I'm building Machisma Beauty, a bilingual beauty brand targeting hyperpigmentation for underserved communities. I know what it feels like to be resource-constrained, scrappy, and deeply invested in making something real.</p>
+    <p>That perspective makes me a better partner. I bring enterprise-grade thinking with startup empathy — and I won't recommend anything I wouldn't do myself.</p>
+  </div>
+  <div>
+    <div class="why-stats">
+      <div class="why-stat">
+        <strong>10+</strong>
+        <span>Years in product & brand</span>
+      </div>
+      <div class="why-stat">
+        <strong>85%</strong>
+        <span>Content efficiency gains</span>
+      </div>
+      <div class="why-stat">
+        <strong>5+</strong>
+        <span>Industries navigated</span>
+      </div>
+      <div class="why-stat">
+        <strong>2</strong>
+        <span>Languages, one voice</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSTACK -->
+<section class="substack-section">
+  <div class="fade-up">
+    <span class="eyebrow" style="color:rgba(255,255,255,0.6);">Where I share my thinking</span>
+    <h2 class="display">Read my<br><em>Substack</em></h2>
+    <p>I write honestly about building brands, navigating careers, and what it looks like to do multiple things well. It's where my thinking lives — and it's free.</p>
+    <a href="https://substack.com/@adrianapink" target="_blank" class="btn btn-dark" style="background:white; color:var(--gold);">Read on Substack ↗</a>
+  </div>
+  <div class="substack-topics">
+    <div class="sub-topic">Building a brand from scratch</div>
+    <div class="sub-topic">Career pivots & multi-hyphenate life</div>
+    <div class="sub-topic">Product thinking for non-tech founders</div>
+    <div class="sub-topic">Content strategy that actually works</div>
+    <div class="sub-topic">Navigating tech as a Latina woman</div>
+    <div class="sub-topic">Wellness, community & showing up fully</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="wm-contact" id="contact">
+  <div>
+    <span class="eyebrow">Get in touch</span>
+    <h2 class="display">Ready to<br><em>start?</em></h2>
+    <p>Tell me about your business and what you're working on. I'll get back to you within 48 hours to explore how we can work together.</p>
+    <div style="display:flex; flex-direction:column; gap:0.8rem; margin-top:1rem;">
+      <div style="font-size:0.78rem; color:var(--muted);">✉️ adrianacpink@gmail.com</div>
+      <div style="font-size:0.78rem; color:var(--muted);">📍 New York City, NY</div>
+      <div style="font-size:0.78rem; color:var(--muted);">🔗 <a href="https://www.linkedin.com/in/adrianapink/" target="_blank" style="color:var(--rose);">linkedin.com/in/adrianapink</a></div>
+    </div>
+  </div>
+  <div class="wm-form">
+    <div class="form-row">
+      <div class="field-group">
+        <label>First Name</label>
+        <input type="text" placeholder="Your first name">
+      </div>
+      <div class="field-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Your last name">
+      </div>
+    </div>
+    <div class="field-group">
+      <label>Email</label>
+      <input type="email" placeholder="your@email.com">
+    </div>
+    <div class="field-group">
+      <label>Business / Brand Name</label>
+      <input type="text" placeholder="What are you building?">
+    </div>
+    <div class="field-group">
+      <label>Service Interest</label>
+      <select>
+        <option value="">What can I help with?</option>
+        <option>Brand Strategy</option>
+        <option>Product Consulting</option>
+        <option>Content & Storytelling</option>
+        <option>Not sure yet — let's talk</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label>Tell me more</label>
+      <textarea placeholder="What's going on with your business? Where do you feel stuck?"></textarea>
+    </div>
+    <button class="btn btn-dark" style="width:100%;">Send Message →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">Adriana <em>Pink</em></div>
+      <p class="footer-tagline">"Doing it with passion, staying resilient."</p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-nav-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="yoga.html">Yoga</a></li>
+          <li><a href="pm.html">Product</a></li>
+          <li><a href="writing.html">Work With Me</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/adrianapink/" target="_blank">LinkedIn ↗</a></li>
+          <li><a href="https://substack.com/@adrianapink" target="_blank">Substack ↗</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Adriana C. Pink · adrianapink.com</p>
+    <p class="footer-copy">NYC — Built with intention.</p>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
