@@ -3,337 +3,371 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Writing — Adriana Pink</title>
-  <meta name="description" content="Honest writing on career, wellness, identity, and building a full life as a multi-hyphenate woman in NYC.">
+  <title>Work With Me — Adriana Pink</title>
+  <meta name="description" content="Brand strategy, product consulting, and content storytelling for startups and small businesses ready to build with intention.">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* ── WRITING PAGE ── */
 
-    .writing-hero {
+    /* ── WORK WITH ME PAGE ── */
+
+    .wm-hero {
       min-height: 100vh;
-      background: var(--cream);
+      background: var(--navy);
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 8rem 3rem 4rem;
       position: relative;
       overflow: hidden;
-      border-bottom: 1px solid var(--rule);
     }
 
-    .writing-hero::before {
-      content: '"';
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(20rem, 50vw, 50rem);
-      font-weight: 400;
-      color: rgba(201,168,112,0.08);
+    .wm-hero::before {
+      content: '';
       position: absolute;
-      top: -8rem; right: -3rem;
-      line-height: 1;
+      top: -10rem; right: -10rem;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,112,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
 
-    .writing-hero-top {
-      position: absolute;
-      top: 7rem; left: 3rem;
-    }
-
-    .writing-headline {
+    .wm-headline {
       font-size: clamp(3.5rem, 10vw, 10rem);
       font-weight: 400;
-      color: var(--navy);
+      color: white;
       line-height: 0.92;
       position: relative;
       z-index: 1;
       margin-bottom: 2.5rem;
     }
 
-    .writing-headline em {
+    .wm-headline em {
       font-style: italic;
       color: var(--gold);
       display: block;
     }
 
-    .writing-hero-sub {
+    .wm-hero-sub {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
-      border-top: 1px solid var(--rule);
+      border-top: 1px solid rgba(255,255,255,0.1);
       padding-top: 2.5rem;
       position: relative;
       z-index: 1;
     }
 
-    .writing-hero-sub p {
+    .wm-hero-sub p {
       font-size: 0.92rem;
       line-height: 1.85;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .wm-hero-sub .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    /* INTRO */
+    .wm-intro {
+      padding: 7rem 3rem;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .wm-intro .display { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 1.2rem; }
+    .wm-intro p { font-size: 0.92rem; line-height: 1.85; color: var(--muted); margin-bottom: 1rem; }
+
+    .wm-intro-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+    }
+
+    .credential-row {
+      background: var(--blush);
+      padding: 1.4rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      transition: background 0.2s;
+    }
+
+    .credential-row:hover { background: var(--rose-light); }
+
+    .cred-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .cred-text strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .cred-text span {
+      font-size: 0.75rem;
       color: var(--muted);
     }
 
-    .writing-hero-sub .coming-pill {
-      display: inline-block;
-      background: var(--gold);
-      color: white;
-      font-size: 0.62rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.8rem;
-      margin-bottom: 1rem;
-    }
-
-    /* ABOUT WRITING */
-    .about-writing {
-      padding: 7rem 3rem;
-      background: var(--navy);
-    }
-
-    .about-writing .display { font-size: clamp(2rem, 3.5vw, 3rem); color: white; margin-bottom: 1.5rem; }
-    .about-writing .display em { color: var(--gold); }
-
-    .about-writing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-      margin-top: 4rem;
-    }
-
-    .about-writing-left p {
-      font-size: 0.92rem;
-      line-height: 1.9;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 1.1rem;
-    }
-
-    .about-writing-left blockquote {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-style: italic;
-      color: var(--gold);
-      border-left: 2px solid var(--gold);
-      padding-left: 1.5rem;
-      margin: 2rem 0;
-      line-height: 1.5;
-    }
-
-    /* TOPICS */
-    .topics-full {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .topic-item {
-      padding: 1.5rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      display: grid;
-      grid-template-columns: 2rem 1fr auto;
-      gap: 1.2rem;
-      align-items: center;
-      transition: opacity 0.2s;
-    }
-
-    .topic-item:hover { opacity: 0.7; }
-
-    .topic-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: rgba(255,255,255,0.2);
-      font-style: italic;
-    }
-
-    .topic-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      color: white;
-    }
-
-    .topic-arrow {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.2);
-    }
-
-    /* COMING SOON */
-    .coming-soon {
-      padding: 7rem 3rem;
+    /* SERVICES */
+    .services {
       background: var(--blush);
+      padding: 7rem 3rem;
     }
 
-    .coming-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: end;
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
       margin-bottom: 4rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
 
-    .coming-header .display { font-size: clamp(2rem, 3.5vw, 3rem); }
+    .services-header .display { font-size: clamp(2rem, 3.5vw, 3rem); }
 
-    .coming-header p { font-size: 0.88rem; line-height: 1.85; color: var(--muted); }
-
-    .posts-grid {
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5px;
     }
 
-    .post-card {
+    .service-card {
       background: white;
-      padding: 2.5rem;
+      padding: 3rem 2.5rem;
       position: relative;
-      overflow: hidden;
-      transition: transform 0.25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .post-card:hover { transform: translateY(-4px); }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(196,133,126,0.1);
+    }
 
-    .post-card::before {
+    .service-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: var(--gold);
+      background: var(--rose);
     }
 
-    .post-card:nth-child(2)::before { background: var(--rose); }
-    .post-card:nth-child(3)::before { background: var(--sage); }
-    .post-card:nth-child(4)::before { background: var(--slate); }
-    .post-card:nth-child(5)::before { background: var(--gold); }
-    .post-card:nth-child(6)::before { background: var(--rose); }
+    .service-card:nth-child(2)::before { background: var(--gold); }
+    .service-card:nth-child(3)::before { background: var(--slate); }
 
-    .post-category {
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .post-card:nth-child(2) .post-category { color: var(--rose); }
-    .post-card:nth-child(3) .post-category { color: var(--sage); }
-    .post-card:nth-child(4) .post-category { color: var(--slate); }
-    .post-card:nth-child(5) .post-category { color: var(--gold); }
-    .post-card:nth-child(6) .post-category { color: var(--rose); }
-
-    .post-title {
+    .service-num {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--rose-light);
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card:nth-child(2) .service-num { color: rgba(201,168,112,0.3); }
+    .service-card:nth-child(3) .service-num { color: rgba(139,149,184,0.3); }
+
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
       font-weight: 500;
       color: var(--navy);
-      line-height: 1.3;
       margin-bottom: 0.8rem;
+      line-height: 1.2;
     }
 
-    .post-excerpt {
-      font-size: 0.82rem;
-      line-height: 1.75;
+    .service-desc {
+      font-size: 0.83rem;
+      line-height: 1.8;
       color: var(--muted);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
     }
 
-    .post-footer {
+    .service-includes {
+      list-style: none;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.68rem;
-      color: var(--muted);
-      letter-spacing: 0.06em;
+      flex-direction: column;
+      gap: 0.45rem;
     }
 
-    .post-coming {
-      background: var(--blush);
+    .service-includes li {
+      font-size: 0.78rem;
       color: var(--muted);
-      padding: 0.2rem 0.6rem;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.5;
     }
 
-    /* NEWSLETTER */
-    .writing-newsletter {
-      padding: 8rem 3rem;
+    .service-includes li::before {
+      content: '→';
+      color: var(--rose);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .service-card:nth-child(2) .service-includes li::before { color: var(--gold); }
+    .service-card:nth-child(3) .service-includes li::before { color: var(--slate); }
+
+    /* PROCESS */
+    .process {
       background: var(--navy);
+      padding: 7rem 3rem;
+    }
+
+    .process .display { color: white; font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 4rem; }
+    .process .display em { color: var(--gold); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .process-step {
+      background: var(--navy);
+      padding: 2.5rem 2rem;
+      transition: background 0.25s;
+    }
+
+    .process-step:hover { background: rgba(255,255,255,0.04); }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.1);
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: white;
+      margin-bottom: 0.6rem;
+    }
+
+    .step-desc {
+      font-size: 0.8rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* WHY ME */
+    .why-me {
+      padding: 7rem 3rem;
+      background: var(--cream);
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6rem;
       align-items: center;
     }
 
-    .writing-newsletter .display { font-size: clamp(2rem, 4vw, 3.5rem); color: white; }
-    .writing-newsletter .display em { color: var(--gold); }
+    .why-me .display { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 1.5rem; }
+    .why-me p { font-size: 0.92rem; line-height: 1.85; color: var(--muted); margin-bottom: 1rem; }
 
-    .newsletter-info p {
-      font-size: 0.9rem;
-      line-height: 1.85;
-      color: rgba(255,255,255,0.5);
-      margin-top: 1.2rem;
+    .why-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      margin-top: 2rem;
     }
 
-    .newsletter-form-block { display: flex; flex-direction: column; gap: 1.2rem; }
+    .why-stat {
+      background: var(--blush);
+      padding: 1.8rem;
+    }
 
-    .dark-field {
+    .why-stat strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--navy);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .why-stat span {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* SUBSTACK */
+    .substack-section {
+      background: var(--gold);
+      padding: 6rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .substack-section .display { font-size: clamp(2rem, 3.5vw, 3rem); color: white; margin-bottom: 1rem; }
+    .substack-section .display em { font-style: italic; color: rgba(255,255,255,0.65); }
+
+    .substack-section p { font-size: 0.92rem; line-height: 1.85; color: rgba(255,255,255,0.75); margin-bottom: 2rem; }
+
+    .substack-topics {
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0;
     }
 
-    .dark-field label {
-      font-size: 0.62rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-    }
-
-    .dark-field input {
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
-      padding: 0.65rem 0;
-      font-size: 0.9rem;
-      font-family: 'DM Sans', sans-serif;
-      color: white;
-      outline: none;
-      width: 100%;
-      transition: border-color 0.2s;
-    }
-
-    .dark-field input::placeholder { color: rgba(255,255,255,0.25); }
-    .dark-field input:focus { border-bottom-color: var(--gold); }
-
-    .topics-pills {
+    .sub-topic {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .pill {
-      border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.5);
-      padding: 0.35rem 0.8rem;
-      font-size: 0.68rem;
-      letter-spacing: 0.06em;
-      cursor: pointer;
-      transition: all 0.15s;
-      user-select: none;
+    .sub-topic::after { content: '↗'; font-style: normal; font-size: 0.8rem; opacity: 0.5; }
+
+    /* CONTACT */
+    .wm-contact {
+      background: var(--cream);
+      padding: 7rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
     }
 
-    .pill:hover, .pill.selected {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
+    .wm-contact .display { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 1rem; }
+    .wm-contact > div > p { font-size: 0.92rem; line-height: 1.85; color: var(--muted); margin-bottom: 2rem; }
+
+    .wm-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
     /* RESPONSIVE */
     @media (max-width: 860px) {
-      .writing-hero { padding: 0 1.5rem 3rem; }
-      .writing-hero-top { left: 1.5rem; }
-      .writing-hero-sub { grid-template-columns: 1fr; gap: 1.5rem; }
-      .about-writing { padding: 4rem 1.5rem; }
-      .about-writing-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .coming-soon { padding: 4rem 1.5rem; }
-      .coming-header { grid-template-columns: 1fr; gap: 1.5rem; }
-      .posts-grid { grid-template-columns: 1fr; }
-      .writing-newsletter { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 3rem; }
+      .wm-hero { padding: 7rem 1.5rem 3rem; }
+      .wm-hero-sub { grid-template-columns: 1fr; gap: 1.5rem; }
+      .wm-intro, .why-me, .wm-contact, .substack-section { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 2.5rem; }
+      .services { padding: 4rem 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process { padding: 4rem 1.5rem; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .why-stats { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -347,194 +381,238 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="yoga.html">Yoga</a></li>
     <li><a href="pm.html">Product</a></li>
-    <li><a href="writing.html" class="active">Writing</a></li>
+    <li><a href="writing.html" class="active">Work With Me</a></li>
     <li><a href="https://www.linkedin.com/in/adrianapink/" target="_blank" class="nav-ext">LinkedIn ↗</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section class="writing-hero pt-nav">
-  <div class="writing-hero-top">
-    <a href="index.html" style="font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); display:inline-flex; align-items:center; gap:0.4rem;">← Back home</a>
+<section class="wm-hero">
+  <h1 class="wm-headline display">
+    Let's build
+    <em>something</em>
+    together.
+  </h1>
+  <div class="wm-hero-sub">
+    <p>I'm a Senior Product Manager and brand builder with a decade of experience helping companies ship products people actually want. Now I'm bringing that same rigor to startups and small businesses ready to grow with intention.</p>
+    <div class="actions">
+      <a href="#contact" class="btn btn-rose">Start a conversation →</a>
+      <a href="#services" class="btn btn-outline" style="border-color:rgba(255,255,255,0.25); color:white;">See what I offer</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="wm-intro">
+  <div class="fade-up">
+    <span class="eyebrow">The approach</span>
+    <h2 class="display">Strategy that's<br><em>built to last</em></h2>
+    <p>I don't do cookie-cutter. Every brand, product, and business has its own story — and my job is to help you find yours, sharpen it, and build systems around it that actually work.</p>
+    <p>With a background spanning Chemical Engineering, AI/ML products, and consumer brands across IBM, Disney, and Morgan & Morgan, I bring technical depth and creative thinking to every engagement.</p>
+  </div>
+  <div class="wm-intro-right">
+    <div class="credential-row">
+      <div class="cred-icon">🏗️</div>
+      <div class="cred-text">
+        <strong>10+ Years Building Products</strong>
+        <span>Startups to enterprise, across tech, media & legal</span>
+      </div>
+    </div>
+    <div class="credential-row">
+      <div class="cred-icon">🎯</div>
+      <div class="cred-text">
+        <strong>Brand Strategy & Positioning</strong>
+        <span>Helping founders tell clearer, bolder stories</span>
+      </div>
+    </div>
+    <div class="credential-row">
+      <div class="cred-icon">📱</div>
+      <div class="cred-text">
+        <strong>Content & Social Strategy</strong>
+        <span>Building audiences with bilingual, cultural fluency</span>
+      </div>
+    </div>
+    <div class="credential-row">
+      <div class="cred-icon">🤝</div>
+      <div class="cred-text">
+        <strong>Founder-First Mindset</strong>
+        <span>I've built my own brand — I understand the stakes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <span class="eyebrow">What I offer</span>
+      <h2 class="display">Services built for<br><em>real businesses</em></h2>
+    </div>
+    <a href="#contact" class="btn btn-dark">Let's talk →</a>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-num">01</div>
+      <h3 class="service-name">Brand Strategy</h3>
+      <p class="service-desc">For startups and small businesses who know what they do but struggle to communicate it clearly. We'll build the foundation your brand needs to grow.</p>
+      <ul class="service-includes">
+        <li>Brand positioning & messaging framework</li>
+        <li>Audience definition & competitive landscape</li>
+        <li>Visual identity direction & tone of voice</li>
+        <li>Go-to-market strategy</li>
+        <li>Brand story & founding narrative</li>
+      </ul>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">02</div>
+      <h3 class="service-name">Product Consulting</h3>
+      <p class="service-desc">For founders building digital products who need a strategic PM partner — without the full-time hire. Bring clarity to your roadmap and confidence to your decisions.</p>
+      <ul class="service-includes">
+        <li>Product roadmap development</li>
+        <li>Feature prioritization & trade-off analysis</li>
+        <li>User research & discovery facilitation</li>
+        <li>Vendor & tech stack evaluation</li>
+        <li>Launch strategy & success metrics</li>
+      </ul>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">03</div>
+      <h3 class="service-name">Content & Storytelling</h3>
+      <p class="service-desc">For brands that need a consistent, compelling voice across platforms. I help you create content systems that don't rely on you being online 24/7.</p>
+      <ul class="service-includes">
+        <li>Content strategy & editorial calendar</li>
+        <li>Social media positioning & pillars</li>
+        <li>Bilingual content (English & Spanish)</li>
+        <li>Founder personal brand development</li>
+        <li>Community building frameworks</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <span class="eyebrow gold">How it works</span>
+  <h2 class="display">A simple, <em>clear process</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Connect</div>
+      <p class="step-desc">Reach out via the form below. Tell me about your business, your goals, and where you feel stuck. No lengthy intake forms — just a real conversation.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Align</div>
+      <p class="step-desc">We'll talk through your needs and I'll share how I can help. If we're a good fit, we'll define the scope, timeline, and what success looks like.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Build</div>
+      <p class="step-desc">We get to work. I bring structure, strategy, and honest feedback — and you stay in the driver's seat. No fluff, no filler.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Grow</div>
+      <p class="step-desc">You leave with a clear plan, actionable assets, and the confidence to execute. I'm here for follow-up as you put it into practice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="why-me">
+  <div class="fade-up">
+    <span class="eyebrow">Why work with me</span>
+    <h2 class="display">I've built brands.<br><em>I know the stakes.</em></h2>
+    <p>I'm not just a consultant — I'm a founder too. I'm building Machisma Beauty, a bilingual beauty brand targeting hyperpigmentation for underserved communities. I know what it feels like to be resource-constrained, scrappy, and deeply invested in making something real.</p>
+    <p>That perspective makes me a better partner. I bring enterprise-grade thinking with startup empathy — and I won't recommend anything I wouldn't do myself.</p>
   </div>
   <div>
-    <h1 class="writing-headline display">
-      Honest.<br>
-      <em>Unfiltered.</em>
-      Real.
-    </h1>
-    <div class="writing-hero-sub">
-      <div>
-        <a href="https://substack.com/@adrianapink" target="_blank" class="coming-pill" style="text-decoration:none;">Substack — Now Live ↗</a>
-        <p>Writing for ambitious women learning to hold it all — career pivots, side businesses, identity, wellness, and the beautiful chaos of building a full life without apology.</p>
+    <div class="why-stats">
+      <div class="why-stat">
+        <strong>10+</strong>
+        <span>Years in product & brand</span>
       </div>
-      <div>
-        <p>I write the way I live: multi-hyphenate and fully present. Expect essays on navigating tech as a Latina woman, what yoga actually teaches you about work, and how to build things — businesses, bodies, communities — that last.</p>
-        <div style="margin-top:1.5rem;">
-          <a href="#newsletter" class="btn btn-dark">Notify me when it launches</a>
-        </div>
+      <div class="why-stat">
+        <strong>85%</strong>
+        <span>Content efficiency gains</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT WRITING -->
-<section class="about-writing">
-  <span class="eyebrow gold">The why</span>
-  <h2 class="display">Writing is how<br>I make sense <em>of it all</em></h2>
-  <div class="about-writing-grid">
-    <div class="about-writing-left fade-up">
-      <p>I'm a Senior Product Manager, a yoga teacher, and a woman who's spent years at the intersection of too many things to fit in a single bio box. For a long time, I thought that meant I needed to pick one thing. I don't think that anymore.</p>
-      <blockquote>Multi-hyphenate isn't a compromise. It's the whole point.</blockquote>
-      <p>This Substack is for the women who are also too many things. The ones building careers with intention while also growing something on the side, going to yoga class, texting their family in Spanish, and somehow still trying to save money. I see you. I am you.</p>
-      <p>I'll write about the real stuff — what it takes to level up in tech without losing yourself, what running free yoga classes in NYC taught me about community, and why building Machisma Beauty while job-searching is a feature, not a bug.</p>
-      <div style="margin-top:2rem;">
-        <a href="#newsletter" class="btn btn-rose">Notify me when it's live</a>
+      <div class="why-stat">
+        <strong>5+</strong>
+        <span>Industries navigated</span>
       </div>
-    </div>
-    <div class="fade-up">
-      <p style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); margin-bottom:1.5rem;">Topics I'll cover</p>
-      <div class="topics-full">
-        <div class="topic-item">
-          <span class="topic-num">01</span>
-          <span class="topic-name">What it actually means to be multi-hyphenate</span>
-          <span class="topic-arrow">↗</span>
-        </div>
-        <div class="topic-item">
-          <span class="topic-num">02</span>
-          <span class="topic-name">Building a career in tech as a Latina woman</span>
-          <span class="topic-arrow">↗</span>
-        </div>
-        <div class="topic-item">
-          <span class="topic-num">03</span>
-          <span class="topic-name">Yoga off the mat — how it changed my work</span>
-          <span class="topic-arrow">↗</span>
-        </div>
-        <div class="topic-item">
-          <span class="topic-num">04</span>
-          <span class="topic-name">Side businesses, beauty brands & bold moves</span>
-          <span class="topic-arrow">↗</span>
-        </div>
-        <div class="topic-item">
-          <span class="topic-num">05</span>
-          <span class="topic-name">Money, debt, and building financial freedom</span>
-          <span class="topic-arrow">↗</span>
-        </div>
-        <div class="topic-item">
-          <span class="topic-num">06</span>
-          <span class="topic-name">Living fully and loudly in New York City</span>
-          <span class="topic-arrow">↗</span>
-        </div>
-        <div class="topic-item">
-          <span class="topic-num">07</span>
-          <span class="topic-name">Identity, culture & being unapologetically you</span>
-          <span class="topic-arrow">↗</span>
-        </div>
+      <div class="why-stat">
+        <strong>2</strong>
+        <span>Languages, one voice</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMING SOON POSTS -->
-<section class="coming-soon">
-  <div class="coming-header">
-    <div>
-      <span class="eyebrow gold">Preview</span>
-      <h2 class="display">Essays in<br><em class="gold">the works</em></h2>
-    </div>
-    <p>These are some of the first essays coming to the Substack. Subscribe below to be notified the moment they drop.</p>
+<!-- SUBSTACK -->
+<section class="substack-section">
+  <div class="fade-up">
+    <span class="eyebrow" style="color:rgba(255,255,255,0.6);">Where I share my thinking</span>
+    <h2 class="display">Read my<br><em>Substack</em></h2>
+    <p>I write honestly about building brands, navigating careers, and what it looks like to do multiple things well. It's where my thinking lives — and it's free.</p>
+    <a href="https://substack.com/@adrianapink" target="_blank" class="btn btn-dark" style="background:white; color:var(--gold);">Read on Substack ↗</a>
   </div>
-  <div class="posts-grid">
-    <div class="post-card fade-up">
-      <p class="post-category">Career</p>
-      <h3 class="post-title">On Being the Engineer Who Became a PM Who Teaches Yoga</h3>
-      <p class="post-excerpt">Nobody tells you that your "strange" resume is actually your superpower. A reflection on non-linear paths and why they produce better builders.</p>
-      <div class="post-footer">
-        <span>~8 min read</span>
-        <span class="post-coming">Coming Soon</span>
-      </div>
-    </div>
-    <div class="post-card fade-up">
-      <p class="post-category">Wellness</p>
-      <h3 class="post-title">What Teaching Free Yoga Taught Me About Leadership</h3>
-      <p class="post-excerpt">Creating a judgment-free space for strangers in Central Park turned out to be the best management training I never paid for.</p>
-      <div class="post-footer">
-        <span>~6 min read</span>
-        <span class="post-coming">Coming Soon</span>
-      </div>
-    </div>
-    <div class="post-card fade-up">
-      <p class="post-category">Identity</p>
-      <h3 class="post-title">Multi-Hyphenate Is Not a Crisis, It's a Strategy</h3>
-      <p class="post-excerpt">The people who told me to "focus" had a point. They were also completely wrong. Here's why doing many things made me better at all of them.</p>
-      <div class="post-footer">
-        <span>~7 min read</span>
-        <span class="post-coming">Coming Soon</span>
-      </div>
-    </div>
-    <div class="post-card fade-up">
-      <p class="post-category">Money</p>
-      <h3 class="post-title">The Debt Payoff Plan I Built in a Spreadsheet at Midnight</h3>
-      <p class="post-excerpt">No shame, just math. The avalanche method, a few credit cards, and a plan that finally feels real.</p>
-      <div class="post-footer">
-        <span>~5 min read</span>
-        <span class="post-coming">Coming Soon</span>
-      </div>
-    </div>
-    <div class="post-card fade-up">
-      <p class="post-category">Culture</p>
-      <h3 class="post-title">Building Machisma Beauty: Why Beauty is Political</h3>
-      <p class="post-excerpt">A bilingual brand targeting hyperpigmentation in bodies that have been underserved by the beauty industry for too long. Here's how it started.</p>
-      <div class="post-footer">
-        <span>~9 min read</span>
-        <span class="post-coming">Coming Soon</span>
-      </div>
-    </div>
-    <div class="post-card fade-up">
-      <p class="post-category">Career</p>
-      <h3 class="post-title">How I Prepared for 6 PM Interviews Simultaneously Without Losing My Mind</h3>
-      <p class="post-excerpt">STAR stories, a master spreadsheet, and the one framework that changed how I talk about my own work.</p>
-      <div class="post-footer">
-        <span>~10 min read</span>
-        <span class="post-coming">Coming Soon</span>
-      </div>
-    </div>
+  <div class="substack-topics">
+    <div class="sub-topic">Building a brand from scratch</div>
+    <div class="sub-topic">Career pivots & multi-hyphenate life</div>
+    <div class="sub-topic">Product thinking for non-tech founders</div>
+    <div class="sub-topic">Content strategy that actually works</div>
+    <div class="sub-topic">Navigating tech as a Latina woman</div>
+    <div class="sub-topic">Wellness, community & showing up fully</div>
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section class="writing-newsletter" id="newsletter">
-  <div class="newsletter-info fade-up">
-    <span class="eyebrow gold">Don't miss it</span>
-    <h2 class="display">Be the first<br>to <em>read it</em></h2>
-    <p>Subscribe on Substack to get new essays straight to your inbox. No spam. Just honest writing, when it's ready.</p>
-    <div style="margin-top:2rem; display:flex; flex-direction:column; gap:0.6rem;">
-      <div style="font-size:0.75rem; color:rgba(255,255,255,0.3);">✦ Early reader access</div>
-      <div style="font-size:0.75rem; color:rgba(255,255,255,0.3);">✦ Launch notification</div>
-      <div style="font-size:0.75rem; color:rgba(255,255,255,0.3);">✦ No spam, ever</div>
+<!-- CONTACT -->
+<section class="wm-contact" id="contact">
+  <div>
+    <span class="eyebrow">Get in touch</span>
+    <h2 class="display">Ready to<br><em>start?</em></h2>
+    <p>Tell me about your business and what you're working on. I'll get back to you within 48 hours to explore how we can work together.</p>
+    <div style="display:flex; flex-direction:column; gap:0.8rem; margin-top:1rem;">
+      <div style="font-size:0.78rem; color:var(--muted);">✉️ adrianacpink@gmail.com</div>
+      <div style="font-size:0.78rem; color:var(--muted);">📍 New York City, NY</div>
+      <div style="font-size:0.78rem; color:var(--muted);">🔗 <a href="https://www.linkedin.com/in/adrianapink/" target="_blank" style="color:var(--rose);">linkedin.com/in/adrianapink</a></div>
     </div>
   </div>
-  <div class="newsletter-form-block fade-up">
-    <div class="dark-field">
-      <label>Your Name</label>
-      <input type="text" placeholder="First name">
+  <div class="wm-form">
+    <div class="form-row">
+      <div class="field-group">
+        <label>First Name</label>
+        <input type="text" placeholder="Your first name">
+      </div>
+      <div class="field-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Your last name">
+      </div>
     </div>
-    <div class="dark-field">
-      <label>Your Email</label>
+    <div class="field-group">
+      <label>Email</label>
       <input type="email" placeholder="your@email.com">
     </div>
-    <div>
-      <p style="font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:0.8rem;">Topics you're most interested in</p>
-      <div class="topics-pills">
-        <span class="pill" onclick="this.classList.toggle('selected')">Career</span>
-        <span class="pill" onclick="this.classList.toggle('selected')">Yoga & Wellness</span>
-        <span class="pill" onclick="this.classList.toggle('selected')">Identity & Culture</span>
-        <span class="pill" onclick="this.classList.toggle('selected')">Money</span>
-        <span class="pill" onclick="this.classList.toggle('selected')">Side Businesses</span>
-        <span class="pill" onclick="this.classList.toggle('selected')">NYC Life</span>
-      </div>
+    <div class="field-group">
+      <label>Business / Brand Name</label>
+      <input type="text" placeholder="What are you building?">
     </div>
-    <a href="https://substack.com/@adrianapink" target="_blank" class="btn btn-rose" style="width:100%; margin-top:0.5rem; text-align:center;">Subscribe on Substack →</a>
+    <div class="field-group">
+      <label>Service Interest</label>
+      <select>
+        <option value="">What can I help with?</option>
+        <option>Brand Strategy</option>
+        <option>Product Consulting</option>
+        <option>Content & Storytelling</option>
+        <option>Not sure yet — let's talk</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label>Tell me more</label>
+      <textarea placeholder="What's going on with your business? Where do you feel stuck?"></textarea>
+    </div>
+    <button class="btn btn-dark" style="width:100%;">Send Message →</button>
   </div>
 </section>
 
@@ -552,7 +630,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="yoga.html">Yoga</a></li>
           <li><a href="pm.html">Product</a></li>
-          <li><a href="writing.html">Writing</a></li>
+          <li><a href="writing.html">Work With Me</a></li>
         </ul>
       </div>
       <div class="footer-nav-col">
