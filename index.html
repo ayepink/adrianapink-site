@@ -393,6 +393,38 @@
 
     .newsletter-form button:hover { background: var(--cream); }
 
+
+    /* BRANDS CAROUSEL */
+    .brands { padding: 7rem 0; background: var(--cream); overflow: hidden; }
+    .brands-header { padding: 0 3rem; margin-bottom: 3rem; }
+    .brands-header .display { font-size: clamp(2rem, 3.5vw, 3rem); }
+    .brands-carousel {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+    }
+    .brands-track {
+      display: flex; gap: 1.5rem; list-style: none; width: max-content;
+      animation: brands-scroll var(--brands-speed, 40s) linear infinite;
+    }
+    .brands-carousel:hover .brands-track,
+    .brands-carousel:focus-within .brands-track { animation-play-state: paused; }
+    .brand-tile {
+      flex: 0 0 auto; width: 320px; height: 190px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem 2.2rem; border-radius: 2px;
+      border: 1px solid var(--rule);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .brand-tile:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(28,35,64,0.12); }
+    .brand-tile img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+    .brand-tile img.brand-round { max-height: 130px; }
+    @keyframes brands-scroll { to { transform: translateX(calc(-50% - 0.75rem)); } }
+    @media (prefers-reduced-motion: reduce) {
+      .brands-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; padding: 0 1.5rem; }
+      .brands-carousel { -webkit-mask-image: none; mask-image: none; }
+    }
+
     /* RESPONSIVE */
     @media (max-width: 860px) {
       .hero { padding: 0 1.5rem 3rem; }
@@ -404,7 +436,10 @@
       .about-label { writing-mode: horizontal-tb; transform: none; }
       .worlds { padding: 4rem 1.5rem; }
       .worlds-grid { grid-template-columns: 1fr; }
-      .writing-teaser { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 2.5rem; }
+      .brands { padding: 4rem 0; }
+      .brands-header { padding: 0 1.5rem; }
+      .brand-tile { width: 240px; height: 150px; padding: 1.5rem; }
+      .brand-tile img.brand-round { max-height: 100px; }
       .newsletter { padding: 4rem 1.5rem; }
       .newsletter-form { flex-direction: column; }
       .newsletter-form input { border-right: 1px solid rgba(255,255,255,0.3); border-bottom: none; }
@@ -533,22 +568,20 @@
   </div>
 </section>
 
-<!-- WRITING TEASER -->
-<section class="writing-teaser">
-  <div class="fade-up">
-    <span class="eyebrow gold">Writing</span>
-    <h2 class="display">Things I write<br><em class="gold">about</em></h2>
-    <p>My Substack is live — an honest space for ambitious women building intentional lives. On career, wellness, identity, and the beautiful chaos in between.</p>
-    <a href="writing.html" class="btn btn-dark">See what's coming →</a>
+<!-- BRANDS -->
+<section class="brands" aria-label="Brands I've worked with">
+  <div class="brands-header fade-up">
+    <span class="eyebrow gold">Brands</span>
+    <h2 class="display">Brands I've<br><em class="gold">worked with</em></h2>
   </div>
-  <ul class="topics-list">
-    <li>What it means to be multi-hyphenate</li>
-    <li>Building a career with intention</li>
-    <li>Yoga as a tool, not an aesthetic</li>
-    <li>Navigating tech as a Latina woman</li>
-    <li>Money, creativity & side businesses</li>
-    <li>Living fully in New York City</li>
-  </ul>
+  <div class="brands-carousel">
+    <ul class="brands-track">
+      <li class="brand-tile" style="background:#231F20;"><img src="/images/brands/bledmora.webp" alt="Bledmora New York" loading="lazy"></li>
+      <li class="brand-tile" style="background:#FFFFFF;"><img src="/images/brands/way-of-the-winds.webp" alt="Way of the Winds Martial Arts System" loading="lazy" class="brand-round"></li>
+      <li class="brand-tile" style="background:#FFF4F8;"><img src="/images/brands/machisma.webp" alt="Machisma Beauty" loading="lazy"></li>
+      <li class="brand-tile" style="background:#1B2A4A;"><img src="/images/brands/luminara.webp" alt="Luminara Private Health" loading="lazy"></li>
+    </ul>
+  </div>
 </section>
 
 <!-- NEWSLETTER -->
@@ -603,5 +636,18 @@
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 
+<script>
+  // Brands carousel: repeat the logos so the loop has no gaps on wide screens
+  (function () {
+    var track = document.querySelector('.brands-track');
+    if (!track || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var originals = Array.prototype.slice.call(track.children);
+    var add = function () { originals.forEach(function (li) { var c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); track.appendChild(c); }); };
+    while (track.scrollWidth < window.innerWidth * 1.1) add();   // first half wider than the screen
+    var half = track.children.length;
+    for (var i = 0; i < half; i++) { var c = track.children[i].cloneNode(true); c.setAttribute('aria-hidden', 'true'); track.appendChild(c); }
+    track.style.setProperty('--brands-speed', (half * 6) + 's');
+  })();
+</script>
 </body>
 </html>
