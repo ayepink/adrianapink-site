@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Work With Me — Adriana Pink</title>
   <meta name="description" content="Brand strategy, product consulting, and content storytelling for startups and small businesses ready to build with intention.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#FF55AA">
+  <link rel="stylesheet" href="/styles.css">
   <style>
 
     /* ── WORK WITH ME PAGE ── */
@@ -579,28 +585,30 @@
       <div style="font-size:0.78rem; color:var(--muted);">🔗 <a href="https://www.linkedin.com/in/adrianapink/" target="_blank" style="color:var(--rose);">linkedin.com/in/adrianapink</a></div>
     </div>
   </div>
-  <div class="wm-form">
+  <form class="wm-form" name="work-with-me" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="work-with-me">
+    <p hidden><label>Leave blank <input name="bot-field"></label></p>
     <div class="form-row">
       <div class="field-group">
         <label>First Name</label>
-        <input type="text" placeholder="Your first name">
+        <input type="text" name="first_name" required placeholder="Your first name">
       </div>
       <div class="field-group">
         <label>Last Name</label>
-        <input type="text" placeholder="Your last name">
+        <input type="text" name="last_name" placeholder="Your last name">
       </div>
     </div>
     <div class="field-group">
       <label>Email</label>
-      <input type="email" placeholder="your@email.com">
+      <input type="email" name="email" required placeholder="your@email.com">
     </div>
     <div class="field-group">
       <label>Business / Brand Name</label>
-      <input type="text" placeholder="What are you building?">
+      <input type="text" name="business" placeholder="What are you building?">
     </div>
     <div class="field-group">
       <label>Service Interest</label>
-      <select>
+      <select name="interest">
         <option value="">What can I help with?</option>
         <option>Brand Strategy</option>
         <option>Product Consulting</option>
@@ -610,10 +618,10 @@
     </div>
     <div class="field-group">
       <label>Tell me more</label>
-      <textarea placeholder="What's going on with your business? Where do you feel stuck?"></textarea>
+      <textarea name="message" placeholder="What's going on with your business? Where do you feel stuck?"></textarea>
     </div>
-    <button class="btn btn-dark" style="width:100%;">Send Message →</button>
-  </div>
+    <button type="submit" class="btn btn-dark" style="width:100%;">Send Message →</button>
+  </form>
 </section>
 
 <!-- FOOTER -->

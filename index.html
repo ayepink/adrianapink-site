@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adriana Pink — Product Manager · Yoga Teacher · Writer</title>
   <meta name="description" content="Adriana Pink is a Senior Product Manager, 200-Hr certified yoga teacher, and writer based in NYC.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#FF55AA">
+  <link rel="stylesheet" href="/styles.css">
   <style>
     /* ── HOME-SPECIFIC ── */
 
@@ -477,7 +483,7 @@
 <section class="about">
   <div class="about-left">
     <span class="about-label">About</span>
-    <div class="about-img"></div>
+    <div class="about-img"><img src="/images/IMG101.jpeg" alt="Adriana Pink"></div>
   </div>
   <div class="about-right fade-up">
     <span class="eyebrow">The story</span>
@@ -549,10 +555,12 @@
 <section class="newsletter">
   <h2 class="display">Stay in <em>the loop</em></h2>
   <p>Subscribe to my Substack, get updates on new yoga sessions, and be the first to know what's next.</p>
-  <div class="newsletter-form">
-    <input type="email" placeholder="your@email.com">
-    <button type="button">Notify Me</button>
-  </div>
+  <form class="newsletter-form" name="newsletter" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="newsletter">
+    <p hidden><label>Leave blank <input name="bot-field"></label></p>
+    <input type="email" name="email" required placeholder="your@email.com">
+    <button type="submit">Notify Me</button>
+  </form>
 </section>
 
 <!-- FOOTER -->
